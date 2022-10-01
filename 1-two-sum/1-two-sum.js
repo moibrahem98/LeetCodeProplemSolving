@@ -1,15 +1,13 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function(nums, target) {
-  for (let i = 0; i < nums.length; i++) {
-  const diffIndex = nums.indexOf(target - nums[i]);
-    console.log(diffIndex)
-  if (diffIndex >= 0 && diffIndex !== i) {
-  return [ diffIndex,i];
+const twoSum = (array, goal) => {
+  let numberMap = new Map();
+
+  for (let index = 0; index < array.length; index++) {
+    el = array[index];
+
+    if (numberMap.has(goal - el)) 
+      return [index, numberMap.get(goal - el)];
+    else numberMap.set(el, index);
   }
+
+  return [];
 }
-return []; // no solution found
-};
